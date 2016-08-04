@@ -1,5 +1,5 @@
 # snapsvg
-перевод API
+перевод API - http://snapsvg.io/docs/
 
 
 ### Инициализация холста
@@ -97,4 +97,46 @@ block.drag(
 Snap.getRGB('#f5f5f5');
 
 // Object {r: 245, g: 245, b: 245, hex: "#f5f5f5", opacity: 1}
+```
+
+### Выборка DOM(SVG)-элемента
+
+```javascript
+var circle = s.circle(90,120,80); // черный круг
+
+/*
+
+ Так как в SVG холсте появился DOM элемент cirlce,
+ к нему можно обращаться и вызывать методы Snap
+
+*/
+
+Snap.select("circle").attr({"fill": "#b5b5b5"}); // серый круг
+
+```
+
+### Получение узла DOM(SVG)-элемента
+
+```javascript
+var circle = s.circle(100, 100, 50);
+
+circle.node.onclick = function () {
+    circle.attr("fill", "red"); // по клику, круг станет красным
+};
+```
+
+### Изменение параметров DOM(SVG)-элемента
+
+```javascript
+var circle = s.circle(100, 100, 50);
+
+circle.attr({
+    fill: "#fc0", // цвет фона
+    stroke: "#000", // цвет границы
+    strokeWidth: 2, // ширина границы
+    "fill-opacity": 0.5, // прозрачность
+
+});
+
+console.log(circle.attr("fill")); // rgb(255, 204, 0)
 ```

@@ -1,30 +1,35 @@
 var s = Snap("#draw");
 
-var gridSize = 50;
-var orig = {
-  x: 0,
-  y: 0
-};
-var block = s.rect(100, 100, 100, 100, 20, 20);
-block.attr({
-    fill: "rgb(236, 240, 241)",
-    stroke: "#1f2c39",
-    strokeWidth: 3
+var circle = s.circle(100, 100, 50);
+
+circle.attr({
+    fill: "#fc0", // цвет фона
+    stroke: "#000", // цвет границы
+    strokeWidth: 2, // ширина границы
+    "fill-opacity": 0.5, // прозрачность
+
 });
-block.drag(
 
-  function (dx, dy, x, y, e) {
-      var xSnap = Snap.snapTo(gridSize, orig.x + dx, 100000000);
-      var ySnap = Snap.snapTo(gridSize, orig.y + dy, 100000000);
-      this.attr({
-          x: xSnap,
-          y: ySnap
-      });
-  },
-  
-  function (x, y, e) {
-      orig.x = e.toElement.x.baseVal.value;
-      orig.y = e.toElement.y.baseVal.value;
-  }
+console.log(circle.getBBox())
 
-);
+/*
+
+Object {
+  cx:100,
+  cy:100,
+  h:100,
+  height:100,
+  path:Array[5],
+  r0:70.76344413517704,
+  r1:50,
+  r2:50.0745946151571,
+  vb:"49.925405384842904 50 100.1491892303142 100",
+  w:100.1491892303142,
+  width:100.1491892303142,
+  x:49.925405384842904,
+  x2:150.0745946151571,
+  y:50,
+  y2:150
+}
+
+*/
