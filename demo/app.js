@@ -8,4 +8,7 @@ var square = s.rect(210,40,160,160);
 var ellipse = s.ellipse(460,120,50,80);
 */
 
+
+
+console.log(Snap.rad(90))
 console.log(Snap.getRGB('#f5f5f5'))
