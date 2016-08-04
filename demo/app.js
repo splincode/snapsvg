@@ -1,14 +1,30 @@
 var s = Snap("#draw");
 
-/*// Circle with 80px radius
-var circle = s.circle(90,120,80);
-// Square with 160px side width
-var square = s.rect(210,40,160,160);
-// Ellipse with 80px vertical radius and 50px horizontal radius
-var ellipse = s.ellipse(460,120,50,80);
-*/
+var gridSize = 50;
+var orig = {
+  x: 0,
+  y: 0
+};
+var block = s.rect(100, 100, 100, 100, 20, 20);
+block.attr({
+    fill: "rgb(236, 240, 241)",
+    stroke: "#1f2c39",
+    strokeWidth: 3
+});
+block.drag(
 
+  function (dx, dy, x, y, e) {
+      var xSnap = Snap.snapTo(gridSize, orig.x + dx, 100000000);
+      var ySnap = Snap.snapTo(gridSize, orig.y + dy, 100000000);
+      this.attr({
+          x: xSnap,
+          y: ySnap
+      });
+  },
+  
+  function (x, y, e) {
+      orig.x = e.toElement.x.baseVal.value;
+      orig.y = e.toElement.y.baseVal.value;
+  }
 
-
-console.log(Snap.rad(90))
-console.log(Snap.getRGB('#f5f5f5'))
+);
