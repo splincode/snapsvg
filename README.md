@@ -90,3 +90,11 @@ block.drag(
 
 );
 ```
+
+### Получение RGB-модели
+
+```javascript
+Snap.getRGB('#f5f5f5');
+
+// Object {r: 245, g: 245, b: 245, hex: "#f5f5f5", opacity: 1}
+```
