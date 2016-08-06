@@ -140,3 +140,60 @@ circle.attr({
 
 console.log(circle.attr("fill")); // rgb(255, 204, 0)
 ```
+
+### Ограничительная рамка DOM(SVG)-элемента
+
+```javascript
+var circle = s.circle(100, 100, 50);
+
+circle.attr({
+    fill: "#fc0", // цвет фона
+    stroke: "#000", // цвет границы
+    strokeWidth: 2, // ширина границы
+    "fill-opacity": 0.5, // прозрачность
+
+});
+
+console.log(circle.getBBox())
+
+/*
+
+Object {
+  cx:100,
+  cy:100,
+  h:100,
+  height:100,
+  path:Array[5],
+  r0:70.76344413517704,
+  r1:50,
+  r2:50.0745946151571,
+  vb:"49.925405384842904 50 100.1491892303142 100",
+  w:100.1491892303142,
+  width:100.1491892303142,
+  x:49.925405384842904,
+  x2:150.0745946151571,
+  y:50,
+  y2:150
+}
+
+*/
+```
+
+### Получение значения в px
+
+```javascript
+var circle = s.circle(100, 100, 50);
+
+circle.attr({
+    fill: "#fc0", // цвет фона
+    stroke: "#000", // цвет границы
+    strokeWidth: 2, // ширина границы
+    "fill-opacity": 0.5, // прозрачность,
+    x: 100,
+    y: 150
+
+});
+
+console.log(circle.asPX('cx')); // 100
+
+```
